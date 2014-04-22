@@ -4,9 +4,11 @@ PowerShell scripts for more object-oriented ETL than SSIS
 Copy-SqlTable 
 --------------
 USAGE EXAMPLE:
-powershell.exe -NoLogo -NoProfile -executionpolicy RemoteSigned -Command "&'Y:\DI_Projects\scripts\Copy-SqlTable.ps1' -SrcServer 'dwdb02' -SrcDatabase 'Reports' -SrcTable 'SellThruNew' -DestServer 'mktsvcdb02' -DestDatabase 'Reports' -Truncate"
+powershell.exe -NoLogo -NoProfile -executionpolicy RemoteSigned -Command "&'Y:\scripts\Copy-SqlTable.ps1' -SrcServer 'dwdb02' -SrcDatabase 'Reports' -SrcTable 'KioskAnalytics' -DestServer 'mktsvcdb02' -DestDatabase 'Reports' -Truncate"
 
 
 Start-JobAndWait
 -----------------
 USAGE EXAMPLE:
+powershell.exe -NoLogo -NoProfile -executionpolicy RemoteSigned -Command "&'Y:\scripts\Start-JobAndWait.ps1' -ServerName 'proddb01' -JobName 'ExecuteScoringProcess'"
+
