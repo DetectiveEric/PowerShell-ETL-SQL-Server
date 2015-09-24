@@ -1,14 +1,23 @@
 PowerShell scripts for more object-oriented ETL than SSIS
 
+Copy-SqlTable "I just need to copy a table between remote servers and don't have the time for SSIS"
+Start-JobAndWait "A workflow requires a SQL job on a remote server to be executed synchronously"
 
-Copy-SqlTable 
+Copy-SqlTable  
+--------------
+This script will copy a table and its data
+1)	DROP the destination table
+2)	CREATE dest table from source table DDL
+3)	BCP the data from source to destination table
 --------------
 USAGE EXAMPLE:
 powershell.exe -NoLogo -NoProfile -executionpolicy RemoteSigned -Command "&'Y:\scripts\Copy-SqlTable.ps1' -SrcServer 'dwdb02' -SrcDatabase 'Reports' -SrcTable 'KioskAnalytics' -DestServer 'mktsvcdb02' -DestDatabase 'Reports' -Truncate"
 
-
-Start-JobAndWait
------------------
+Start-JobAndWait  
+--------------
+This script starts a remote SQL Agent Job and wait for it to complete
+until a MaximumRuntime is met
+--------------
 USAGE EXAMPLE:
 powershell.exe -NoLogo -NoProfile -executionpolicy RemoteSigned -Command "&'Y:\scripts\Start-JobAndWait.ps1' -ServerName 'proddb01' -JobName 'ExecuteScoringProcess'"
 
